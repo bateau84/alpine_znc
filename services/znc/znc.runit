@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+set -x
+
+ZNC_HOME=${ZNC_HOME:-"/usr/share/znc"}
+
+chown abc:abc ${ZNC_HOME} -R
+if [ ! -f ${ZNC_HOME}/znc.pem ]; then
+	/bin/setuser abc /usr/bin/znc --datadir=${ZNC_HOME} --makepem
+fi
+
+
+/bin/setuser abc /usr/bin/znc --datadir=${ZNC_HOME} -f -r
