@@ -1,4 +1,4 @@
-FROM bateau/alpine_baseimage:3.5
+FROM bateau/alpine_baseimage:latest
 
 ADD . /bd_build/
 
